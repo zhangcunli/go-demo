@@ -1,0 +1,14 @@
+{
+    "LogLevel" : "trace",
+
+    "FileWriter" : {
+        "On": true,
+
+        "LogPath" : "../log/debug.log",
+        "RotateLogPath" : "../log/debug.log.debug-%Y%M%D%H"
+    },
+
+    "ConsoleWriter" : {
+        "On" : false
+    }
+}

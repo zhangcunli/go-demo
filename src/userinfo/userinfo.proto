@@ -1,0 +1,61 @@
+package userinfo;
+
+//乘客行程信息
+message Ride{
+    required int64 routeid      = 1;     //路线 Id
+    optional int64 lineid       = 2;     //班次 Id
+    optional int64 onstopid     = 3;     //上车站点 Id
+    optional int64 offstopid    = 4;     //下车站点 Id
+    optional int32 time         = 5;     //购票时间
+}
+
+//乘客行程历史
+message RidesHistory{
+    required int64 userid       = 1;     //乘客 id
+    repeated Ride arides        = 2;     //乘客行程历史数组
+}
+
+//乘客家和公司地址坐标
+message UserAddr{
+    required int64  userid      = 1;     //用户 Id
+    optional double homelng     = 2;     //家地址经度
+    optional double homelat     = 3;     //家地址纬度
+    optional double corplng     = 4;     //公司地址经度
+    optional double corplat     = 5;     //公司地址纬度
+}
+
+/*
+//乘客在滴滴平台上常用打车出发地和目的地
+message DidiAddr{
+    optional double fromlng   = 1;     //常用打车出发地经度
+    optional double fromlat   = 2;     //常用打车出发地纬度
+    optional double tolng     = 3;     //常用打车目的地经度
+    optional double tolat     = 4;     //常用公司地目的纬度
+}
+
+message UserDidiAddr{
+    required int64 userid       = 1;   //乘客 id
+    repeated DidiAddr aDidiAddr = 2;   //常用打车出发、目的地数组
+}
+*/
+
+message StartAddr{
+    optional double fromlng   = 1;     //常用打车出发地经度
+    optional double fromlat   = 2;     //常用打车出发地纬度
+}
+
+message DestAddr{
+    optional double tolng     = 3;     //常用打车目的地经度
+    optional double tolat     = 4;     //常用公司地目的纬度
+}
+
+message DidiStartAddr{
+    required int64 userid         = 1;   //乘客 id
+    repeated StartAddr astartaddr = 2;   //常用打车出发地数组
+}
+
+message DidiDestAddr{
+    required int64 userid         = 1;   //乘客 id
+    repeated DestAddr adestaddr   = 2;   //常用打车目的地数组
+}
+
